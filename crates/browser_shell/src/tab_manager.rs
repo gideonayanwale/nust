@@ -48,3 +48,7 @@ mod tests {
         assert_eq!(manager.tabs().len(), 1);
     }
 }
+//! Tab Manager module scaffold.
+
+#[derive(Debug, Default)]
+pub struct TabManagerService;

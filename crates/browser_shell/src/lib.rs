@@ -8,6 +8,7 @@ pub mod home_page;
 pub mod navigation_controller;
 pub mod new_tab_page;
 pub mod search_engines;
+pub mod navigation_controller;
 pub mod session_manager;
 pub mod tab_manager;
 pub mod window_manager;

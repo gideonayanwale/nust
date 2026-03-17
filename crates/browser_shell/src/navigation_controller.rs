@@ -35,3 +35,7 @@ mod tests {
         );
     }
 }
+//! Navigation Controller module scaffold.
+
+#[derive(Debug, Default)]
+pub struct NavigationControllerService;
