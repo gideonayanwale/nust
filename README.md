@@ -53,6 +53,8 @@ See `docs/snapshot.md` for a concise status report, limitations, and validation 
 
 Deep architecture audit and completeness plan: `docs/engine_gap_discovery_report.md`.
 
+Comprehensive architecture generator blueprint: `docs/architecture_expansion_blueprint.md`.
+
 ## Productivity skills bootstrap
 
 To clone productivity repos into your workspace (Codex skills + Antigravity), run:
