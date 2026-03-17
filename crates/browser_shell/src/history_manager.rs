@@ -1,0 +1,4 @@
+//! History Manager module scaffold.
+
+#[derive(Debug, Default)]
+pub struct HistoryManagerService;

@@ -1,0 +1,18 @@
+[package]
+name = "browser_shell"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+core_engine = { path = "../core_engine" }
+networking_stack = { path = "../networking_stack" }
+rendering_engine = { path = "../rendering_engine" }
+dom_engine = { path = "../dom_engine" }
+layout_engine = { path = "../layout_engine" }
+painting_engine = { path = "../painting_engine" }
+
+[[bin]]
+name = "browser_shell"
+path = "src/main.rs"

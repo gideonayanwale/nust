@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" fill="#0b1020"/>
+  <text x="40" y="55" fill="#e6edf3" font-size="34" font-family="Arial">NUST Snapshot: Layered Runtime (Current Scaffold)</text>
+
+  <rect x="40" y="90" width="1120" height="80" rx="10" fill="#1f6feb"/>
+  <text x="60" y="138" fill="white" font-size="24" font-family="Arial">Browser Shell (home/new tab, address parsing, route resolution, tab manager)</text>
+
+  <rect x="40" y="190" width="1120" height="70" rx="10" fill="#2f81f7"/>
+  <text x="60" y="234" fill="white" font-size="23" font-family="Arial">Core + Networking + DOM + Rendering + Layout + Painting pipeline wired end-to-end</text>
+
+  <rect x="40" y="280" width="1120" height="70" rx="10" fill="#388bfd"/>
+  <text x="60" y="324" fill="white" font-size="22" font-family="Arial">Automation/Data/AI/Distributed/Extension/DevTools/Observability crates scaffolded with module boundaries</text>
+
+  <rect x="40" y="370" width="1120" height="190" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text x="60" y="410" fill="#7ee787" font-size="24" font-family="Arial">Implemented today:</text>
+  <text x="70" y="445" fill="#c9d1d9" font-size="20" font-family="Arial">• Minimal fetch → parse → DOM → layout → paint flow (CLI output)</text>
+  <text x="70" y="475" fill="#c9d1d9" font-size="20" font-family="Arial">• Home page + New Tab surface with multi-engine one-page search links</text>
+  <text x="70" y="505" fill="#c9d1d9" font-size="20" font-family="Arial">• Unit tests for shell interfaces (address bar, routing, tabs, search rendering)</text>
+  <text x="70" y="535" fill="#c9d1d9" font-size="20" font-family="Arial">• Workspace ready for incremental subsystem implementation</text>
+</svg>
