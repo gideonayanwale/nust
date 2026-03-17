@@ -12,6 +12,10 @@ This snapshot summarizes what is currently implemented and runnable.
   - compute block layout
   - emit text paint commands
 - Browser shell interfaces:
+  - pinned/muted tabs state management
+  - bookmark folders
+  - searchable + recent history APIs
+  - incognito session mode control
   - design system tokens (colors, spacing, typography, radius) for consistent shell skinning
   - Home surface (`--home`)
   - New Tab surface (`--new-tab <query>`)
@@ -33,6 +37,7 @@ This snapshot summarizes what is currently implemented and runnable.
 - `cargo test`
 - `cargo run -p browser_shell -- --home`
 - `cargo run -p browser_shell -- --new-tab "multi engine search"`
+- `cargo run -p browser_shell -- --showcase-modern-features`
 
 ## Visual references
 

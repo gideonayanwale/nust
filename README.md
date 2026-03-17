@@ -26,6 +26,13 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
 - **Design system foundation**
   - Reusable tokens for color, spacing, radius, and typography now drive shell theming and component styles.
 
+- **Modern browser conveniences (new)**
+  - Pinned and muted tab state primitives
+  - Bookmark folders
+  - Searchable/recent history entries
+  - Incognito session mode
+  - CLI showcase command: `--showcase-modern-features`
+
 ![NUST new tab UI mock](docs/images/new-tab-ui-mock.svg)
 
 ### UI skin
