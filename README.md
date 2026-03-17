@@ -51,6 +51,8 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
 
 See `docs/snapshot.md` for a concise status report, limitations, and validation commands.
 
+Deep architecture audit and completeness plan: `docs/engine_gap_discovery_report.md`.
+
 ## Productivity skills bootstrap
 
 To clone productivity repos into your workspace (Codex skills + Antigravity), run:
