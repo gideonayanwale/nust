@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#f6f8fa"/>
+  <rect x="60" y="40" width="1080" height="680" rx="16" fill="white" stroke="#d0d7de"/>
+  <text x="100" y="100" font-size="36" font-family="Arial" fill="#24292f">NUST New Tab</text>
+  <text x="960" y="100" font-size="22" font-family="Arial" fill="#0969da">Home</text>
+  <text x="1030" y="100" font-size="22" font-family="Arial" fill="#24292f">New Tab</text>
+
+  <text x="100" y="170" font-size="30" font-family="Arial" fill="#24292f">Search everywhere (one page)</text>
+  <rect x="100" y="200" width="830" height="52" rx="10" fill="#ffffff" stroke="#8c959f"/>
+  <text x="122" y="234" font-size="22" font-family="Arial" fill="#57606a">multi engine search</text>
+  <rect x="950" y="200" width="140" height="52" rx="10" fill="#1f6feb"/>
+  <text x="992" y="234" font-size="22" font-family="Arial" fill="white">Search</text>
+
+  <rect x="100" y="290" width="990" height="380" rx="12" fill="#f6f8fa" stroke="#d8dee4"/>
+  <text x="130" y="340" font-size="24" font-family="Arial" fill="#24292f">Engine links</text>
+  <text x="130" y="385" font-size="22" font-family="Arial" fill="#0969da">• Google</text>
+  <text x="130" y="425" font-size="22" font-family="Arial" fill="#0969da">• Bing</text>
+  <text x="130" y="465" font-size="22" font-family="Arial" fill="#0969da">• DuckDuckGo</text>
+  <text x="130" y="505" font-size="22" font-family="Arial" fill="#0969da">• Brave</text>
+  <text x="130" y="545" font-size="22" font-family="Arial" fill="#0969da">• Perplexity</text>
+</svg>

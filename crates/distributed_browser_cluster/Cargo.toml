@@ -1,0 +1,8 @@
+[package]
+name = "distributed_browser_cluster"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
