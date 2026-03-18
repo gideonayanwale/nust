@@ -65,3 +65,6 @@ To clone productivity repos into your workspace (Codex skills + Antigravity), ru
 - Optional custom target directory: `./scripts/install_productivity_skills.sh /path/to/dest`
 
 Note: If your environment blocks outbound GitHub traffic (proxy 403), this command will fail until network policy is relaxed.
+
+
+Subsystem merge/consolidation tracker: `docs/merge_plan.md`.

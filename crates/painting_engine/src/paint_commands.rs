@@ -1,4 +1,1 @@
-#[derive(Debug, Clone)]
-pub enum PaintCommand {
-    DrawText { x: f32, y: f32, text: String },
-}
+pub use paint_engine::commands::PaintCommand;

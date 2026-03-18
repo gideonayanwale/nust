@@ -7,3 +7,4 @@ authors.workspace = true
 
 [dependencies]
 layout_engine = { path = "../layout_engine" }
+paint_engine = { path = "../paint_engine" }

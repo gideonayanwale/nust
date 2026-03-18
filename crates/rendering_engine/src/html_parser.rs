@@ -9,3 +9,7 @@ pub fn extract_text_nodes(tokens: &[HtmlToken]) -> Vec<String> {
         })
         .collect()
 }
+
+pub fn parse_to_document(tokens: &[HtmlToken]) -> dom_engine::document::Document {
+    html_parser::parser::parse_to_document(tokens)
+}

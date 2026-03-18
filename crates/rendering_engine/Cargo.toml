@@ -7,3 +7,6 @@ authors.workspace = true
 
 [dependencies]
 dom_engine = { path = "../dom_engine" }
+html_tokenizer = { path = "../html_tokenizer" }
+html_parser = { path = "../html_parser" }
+render_tree = { path = "../render_tree" }

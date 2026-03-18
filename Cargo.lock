@@ -29,7 +29,9 @@ dependencies = [
  "layout_engine",
  "networking_stack",
  "paint_engine",
+ "painting_engine",
  "render_tree",
+ "rendering_engine",
  "resource_loader",
 ]
 
@@ -116,6 +118,7 @@ name = "painting_engine"
 version = "0.1.0"
 dependencies = [
  "layout_engine",
+ "paint_engine",
 ]
 
 [[package]]
@@ -130,6 +133,9 @@ name = "rendering_engine"
 version = "0.1.0"
 dependencies = [
  "dom_engine",
+ "html_parser",
+ "html_tokenizer",
+ "render_tree",
 ]
 
 [[package]]

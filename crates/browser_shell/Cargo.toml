@@ -15,6 +15,8 @@ dom_engine = { path = "../dom_engine" }
 render_tree = { path = "../render_tree" }
 layout_engine = { path = "../layout_engine" }
 paint_engine = { path = "../paint_engine" }
+rendering_engine = { path = "../rendering_engine" }
+painting_engine = { path = "../painting_engine" }
 
 [[bin]]
 name = "browser_shell"
