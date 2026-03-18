@@ -1,0 +1,10 @@
+[package]
+name = "html_parser"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+html_tokenizer = { path = "../html_tokenizer" }
+dom_engine = { path = "../dom_engine" }

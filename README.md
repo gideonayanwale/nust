@@ -55,6 +55,8 @@ Deep architecture audit and completeness plan: `docs/engine_gap_discovery_report
 
 Comprehensive architecture generator blueprint: `docs/architecture_expansion_blueprint.md`.
 
+Phase-by-phase implementation log: `docs/phase_execution_log.md`.
+
 ## Productivity skills bootstrap
 
 To clone productivity repos into your workspace (Codex skills + Antigravity), run:

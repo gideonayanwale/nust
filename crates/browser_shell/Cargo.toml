@@ -8,10 +8,13 @@ authors.workspace = true
 [dependencies]
 core_engine = { path = "../core_engine" }
 networking_stack = { path = "../networking_stack" }
-rendering_engine = { path = "../rendering_engine" }
+resource_loader = { path = "../resource_loader" }
+html_tokenizer = { path = "../html_tokenizer" }
+html_parser = { path = "../html_parser" }
 dom_engine = { path = "../dom_engine" }
+render_tree = { path = "../render_tree" }
 layout_engine = { path = "../layout_engine" }
-painting_engine = { path = "../painting_engine" }
+paint_engine = { path = "../paint_engine" }
 
 [[bin]]
 name = "browser_shell"

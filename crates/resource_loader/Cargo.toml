@@ -1,0 +1,9 @@
+[package]
+name = "resource_loader"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+networking_stack = { path = "../networking_stack" }
