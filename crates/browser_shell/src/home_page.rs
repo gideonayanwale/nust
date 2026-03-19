@@ -2,7 +2,10 @@
 
 <<<<<<< HEAD
 use crate::ui_skin::UiSkin;
+<<<<<<< HEAD
 use crate::{settings_system::BrowserSettings, skin_registry::SkinRegistry};
+=======
+>>>>>>> main
 
 =======
 >>>>>>> main
@@ -74,7 +77,11 @@ mod tests {
         assert!(html.contains("Welcome to NUST Browser OS"));
         assert!(html.contains("Automation"));
 <<<<<<< HEAD
+<<<<<<< HEAD
         assert!(html.contains("NUST Fusion"));
+=======
+        assert!(html.contains("NUST Aurora"));
+>>>>>>> main
 =======
 >>>>>>> main
     }

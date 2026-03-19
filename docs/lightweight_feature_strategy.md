@@ -9,10 +9,14 @@ Goal: move toward broad browser feature parity while keeping NUST resource-effic
 
 ## Implemented now
 - browser settings profile with `Lightweight`, `Balanced`, `MaximumCompatibility`
+<<<<<<< HEAD
 - skin setting with Edge + Chrome + Brave inspired fusion theme
 - capability matrix report to track parity trajectory and runtime posture
 - per-tab thread process registry hook in tab manager
 - automation workflow registry for autopilot-ready tabs
+=======
+- capability matrix report to track parity trajectory and runtime posture
+>>>>>>> main
 
 ## Next steps
 1. tie capability matrix to real subsystem readiness checks

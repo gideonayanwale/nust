@@ -51,17 +51,6 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
   - `cargo run -p browser_shell -- --home`
 - New tab one-pager multi-engine search interface:
   - `cargo run -p browser_shell -- --new-tab "rust browser engine"`
-<<<<<<< HEAD
-- Lightweight Chrome-feature trajectory report:
-  - `cargo run -p browser_shell -- --feature-report`
-  - `cargo run -p browser_shell -- --feature-report balanced`
-- Fusion skin (Edge + Chrome + Brave inspired):
-  - `cargo run -p browser_shell -- --home --skin fusion`
-  - `cargo run -p browser_shell -- --new-tab "automation browser" --skin aurora`
-- Automation + per-tab process showcase:
-  - `cargo run -p browser_shell -- --showcase-modern-features`
-=======
->>>>>>> main
 
 ## Detailed project snapshot
 

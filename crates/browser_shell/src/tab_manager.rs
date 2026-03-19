@@ -15,7 +15,10 @@ pub struct BrowserTab {
 <<<<<<< HEAD
     pub pinned: bool,
     pub muted: bool,
+<<<<<<< HEAD
     pub process: Option<TabProcessInfo>,
+=======
+>>>>>>> main
 =======
 >>>>>>> main
 }
@@ -37,7 +40,10 @@ impl TabManagerService {
 <<<<<<< HEAD
             pinned: false,
             muted: false,
+<<<<<<< HEAD
             process: None,
+=======
+>>>>>>> main
 =======
 >>>>>>> main
         };
@@ -59,6 +65,11 @@ impl TabManagerService {
         }
     }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> main
+>>>>>>> main
     pub fn tabs(&self) -> &[BrowserTab] {
         &self.tabs
     }
@@ -99,6 +110,7 @@ mod tests {
         assert!(updated.pinned);
         assert!(updated.muted);
     }
+<<<<<<< HEAD
 
     #[test]
     fn can_attach_process_record_to_tab() {
@@ -109,6 +121,8 @@ mod tests {
         manager.attach_process(tab.id, process);
         assert!(manager.tabs()[0].process.is_some());
     }
+=======
+>>>>>>> main
 }
 =======
 }

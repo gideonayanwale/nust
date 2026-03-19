@@ -3,7 +3,10 @@
 use crate::search_engines::MultiEngineSearchPage;
 <<<<<<< HEAD
 use crate::ui_skin::UiSkin;
+<<<<<<< HEAD
 use crate::{settings_system::BrowserSettings, skin_registry::SkinRegistry};
+=======
+>>>>>>> main
 =======
 >>>>>>> main
 
@@ -68,7 +71,11 @@ mod tests {
         assert!(html.contains("home-option"));
         assert!(html.contains("search-input"));
 <<<<<<< HEAD
+<<<<<<< HEAD
         assert!(html.contains("NUST Fusion"));
+=======
+        assert!(html.contains("NUST Aurora"));
+>>>>>>> main
 =======
 >>>>>>> main
     }
