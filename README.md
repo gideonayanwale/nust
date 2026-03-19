@@ -23,8 +23,26 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
 - **Innovative multi-engine one-pager search**
   - Generates parallel search links for Google, Bing, DuckDuckGo, Brave, and Perplexity on a single page.
 
+<<<<<<< HEAD
+- **Design system foundation**
+  - Reusable tokens for color, spacing, radius, and typography now drive shell theming and component styles.
+
+- **Modern browser conveniences (new)**
+  - Pinned and muted tab state primitives
+  - Bookmark folders
+  - Searchable/recent history entries
+  - Incognito session mode
+  - CLI showcase command: `--showcase-modern-features`
+
 ![NUST new tab UI mock](docs/images/new-tab-ui-mock.svg)
 
+### UI skin
+- Aurora gradient skin with glass-card panels, chip-style navigation, and stronger action affordances in Home/New Tab surfaces.
+
+=======
+![NUST new tab UI mock](docs/images/new-tab-ui-mock.svg)
+
+>>>>>>> main
 ## Quick start
 
 - Render pipeline demo:
@@ -33,7 +51,34 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
   - `cargo run -p browser_shell -- --home`
 - New tab one-pager multi-engine search interface:
   - `cargo run -p browser_shell -- --new-tab "rust browser engine"`
+<<<<<<< HEAD
+- Lightweight Chrome-feature trajectory report:
+  - `cargo run -p browser_shell -- --feature-report`
+  - `cargo run -p browser_shell -- --feature-report balanced`
+=======
+>>>>>>> main
 
 ## Detailed project snapshot
 
 See `docs/snapshot.md` for a concise status report, limitations, and validation commands.
+<<<<<<< HEAD
+
+Deep architecture audit and completeness plan: `docs/engine_gap_discovery_report.md`.
+
+Comprehensive architecture generator blueprint: `docs/architecture_expansion_blueprint.md`.
+
+Phase-by-phase implementation log: `docs/phase_execution_log.md`.
+
+## Productivity skills bootstrap
+
+To clone productivity repos into your workspace (Codex skills + Antigravity), run:
+
+- `./scripts/install_productivity_skills.sh`
+- Optional custom target directory: `./scripts/install_productivity_skills.sh /path/to/dest`
+
+Note: If your environment blocks outbound GitHub traffic (proxy 403), this command will fail until network policy is relaxed.
+
+
+Subsystem merge/consolidation tracker: `docs/merge_plan.md`.
+=======
+>>>>>>> main

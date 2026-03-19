@@ -1,9 +1,18 @@
 //! Home page model for the browser shell.
 
+<<<<<<< HEAD
+use crate::ui_skin::UiSkin;
+
+=======
+>>>>>>> main
 #[derive(Debug, Clone)]
 pub struct HomePage {
     pub welcome: String,
     pub shortcuts: Vec<&'static str>,
+<<<<<<< HEAD
+    pub skin: UiSkin,
+=======
+>>>>>>> main
 }
 
 impl Default for HomePage {
@@ -11,6 +20,10 @@ impl Default for HomePage {
         Self {
             welcome: "Welcome to NUST Browser OS".to_string(),
             shortcuts: vec!["New Tab", "Automation", "Workspace", "History"],
+<<<<<<< HEAD
+            skin: UiSkin::default(),
+=======
+>>>>>>> main
         }
     }
 }
@@ -20,6 +33,15 @@ impl HomePage {
         let shortcuts = self
             .shortcuts
             .iter()
+<<<<<<< HEAD
+            .map(|shortcut| format!("<span class=\"chip\">{shortcut}</span>"))
+            .collect::<Vec<_>>()
+            .join("\n      ");
+
+        format!(
+            "<style>{}</style>\n<main class=\"shell-root\">\n  <section id=\"home\" class=\"card\" style=\"max-width:920px;width:100%;padding:28px;\">\n    <p style=\"margin:0 0 8px 0;font-weight:700;color:#1e3a8a;\">{}</p>\n    <h1 class=\"surface-title\">{}</h1>\n    <p class=\"surface-subtitle\" style=\"margin:10px 0 20px 0;\">Programmable browsing surface with automation-native architecture.</p>\n    <div style=\"display:flex;gap:10px;flex-wrap:wrap;\">\n      {}\n    </div>\n  </section>\n</main>",
+            self.skin.base_css(), self.skin.brand, self.welcome, shortcuts
+=======
             .map(|shortcut| format!("<li>{shortcut}</li>"))
             .collect::<Vec<_>>()
             .join("\n");
@@ -27,6 +49,7 @@ impl HomePage {
         format!(
             "<section id=\"home\">\n  <h1>{}</h1>\n  <ul>{}</ul>\n</section>",
             self.welcome, shortcuts
+>>>>>>> main
         )
     }
 }
@@ -40,5 +63,9 @@ mod tests {
         let html = HomePage::default().render_html();
         assert!(html.contains("Welcome to NUST Browser OS"));
         assert!(html.contains("Automation"));
+<<<<<<< HEAD
+        assert!(html.contains("NUST Aurora"));
+=======
+>>>>>>> main
     }
 }

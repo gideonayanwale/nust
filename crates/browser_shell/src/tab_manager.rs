@@ -8,6 +8,11 @@ pub struct BrowserTab {
     pub title: String,
     pub url: String,
     pub ui_html: String,
+<<<<<<< HEAD
+    pub pinned: bool,
+    pub muted: bool,
+=======
+>>>>>>> main
 }
 
 #[derive(Debug, Default)]
@@ -24,12 +29,32 @@ impl TabManagerService {
             title: page.title.clone(),
             url: "nust://new-tab".to_string(),
             ui_html: page.render_html(),
+<<<<<<< HEAD
+            pinned: false,
+            muted: false,
+=======
+>>>>>>> main
         };
         self.next_id += 1;
         self.tabs.push(tab.clone());
         tab
     }
 
+<<<<<<< HEAD
+    pub fn pin_tab(&mut self, id: usize) {
+        if let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) {
+            tab.pinned = true;
+        }
+    }
+
+    pub fn mute_tab(&mut self, id: usize) {
+        if let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) {
+            tab.muted = true;
+        }
+    }
+
+=======
+>>>>>>> main
     pub fn tabs(&self) -> &[BrowserTab] {
         &self.tabs
     }
@@ -47,8 +72,23 @@ mod tests {
         assert!(tab.ui_html.contains("Search everywhere"));
         assert_eq!(manager.tabs().len(), 1);
     }
+<<<<<<< HEAD
+
+    #[test]
+    fn can_pin_and_mute_tab() {
+        let mut manager = TabManagerService::default();
+        let tab = manager.open_new_tab("media");
+        manager.pin_tab(tab.id);
+        manager.mute_tab(tab.id);
+        let updated = &manager.tabs()[0];
+        assert!(updated.pinned);
+        assert!(updated.muted);
+    }
+}
+=======
 }
 //! Tab Manager module scaffold.
 
 #[derive(Debug, Default)]
 pub struct TabManagerService;
+>>>>>>> main

@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+pub use html_tokenizer::tokenizer::HtmlToken;
+
+pub fn tokenize(input: &str) -> Vec<HtmlToken> {
+    html_tokenizer::tokenizer::tokenize(input)
+=======
 #[derive(Debug, Clone)]
 pub enum HtmlToken {
     Text(String),
@@ -34,4 +40,5 @@ pub fn tokenize(input: &str) -> Vec<HtmlToken> {
     }
 
     tokens
+>>>>>>> main
 }

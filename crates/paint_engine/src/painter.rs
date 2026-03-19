@@ -1,11 +1,10 @@
-use crate::paint_commands::PaintCommand;
 use layout_engine::layout_tree::LayoutTree;
 
-pub fn render_text(tree: &LayoutTree) -> Vec<PaintCommand> {
-<<<<<<< HEAD
-    paint_engine::painter::generate_paint_commands(tree)
-=======
-    tree.blocks
+use crate::commands::PaintCommand;
+
+pub fn generate_paint_commands(layout: &LayoutTree) -> Vec<PaintCommand> {
+    layout
+        .blocks
         .iter()
         .map(|block| PaintCommand::DrawText {
             x: block.x,
@@ -13,5 +12,4 @@ pub fn render_text(tree: &LayoutTree) -> Vec<PaintCommand> {
             text: block.text.clone(),
         })
         .collect()
->>>>>>> main
 }
