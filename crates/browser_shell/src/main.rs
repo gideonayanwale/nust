@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 use browser_shell::automation_registry::AutomationRegistry;
 use browser_shell::bookmark_manager::BookmarkManagerService;
 use browser_shell::capability_matrix::CapabilityMatrix;
@@ -29,10 +30,23 @@ fn main() -> Result<(), String> {
     match args.next().as_deref() {
         Some("--home") => {
             println!("{}", HomePage::with_settings(&settings).render_html());
+=======
+use browser_shell::home_page::HomePage;
+use browser_shell::new_tab_page::NewTabPage;
+use browser_shell::pipeline::run_pipeline;
+
+fn main() -> Result<(), String> {
+    let mut args = std::env::args().skip(1);
+
+    match args.next().as_deref() {
+        Some("--home") => {
+            println!("{}", HomePage::default().render_html());
+>>>>>>> main
             Ok(())
         }
         Some("--new-tab") => {
             let query = args.next().unwrap_or_default();
+<<<<<<< HEAD
             println!(
                 "{}",
                 NewTabPage::with_settings(query, &settings).render_html()
@@ -60,6 +74,9 @@ fn main() -> Result<(), String> {
         }
         Some("--showcase-modern-features") => {
             showcase_modern_features();
+=======
+            println!("{}", NewTabPage::new(query).render_html());
+>>>>>>> main
             Ok(())
         }
         Some(url) => {
@@ -80,6 +97,7 @@ fn main() -> Result<(), String> {
             Ok(())
         }
     }
+<<<<<<< HEAD
 }
 
 fn showcase_modern_features() {
@@ -120,4 +138,25 @@ fn showcase_modern_features() {
         "- automation workflows attached: {}",
         automation_registry.workflow_count()
     );
+=======
+use browser_shell::pipeline::run_pipeline;
+
+fn main() -> Result<(), String> {
+    let url = std::env::args()
+        .nth(1)
+        .unwrap_or_else(|| "https://example.com".to_string());
+
+    let output = run_pipeline(&url)?;
+
+    println!("NUST minimal renderer output for {url}:");
+    for command in output.commands {
+        println!("{command:?}");
+    }
+
+    if std::env::var("NUST_SHOW_WINDOW").ok().as_deref() == Some("1") {
+        println!("Window bootstrap placeholder enabled.");
+    }
+
+    Ok(())
+>>>>>>> main
 }

@@ -24,6 +24,7 @@ version = "0.1.0"
 dependencies = [
  "core_engine",
  "dom_engine",
+<<<<<<< HEAD
  "html_parser",
  "html_tokenizer",
  "layout_engine",
@@ -33,6 +34,12 @@ dependencies = [
  "render_tree",
  "rendering_engine",
  "resource_loader",
+=======
+ "layout_engine",
+ "networking_stack",
+ "painting_engine",
+ "rendering_engine",
+>>>>>>> main
 ]
 
 [[package]]
@@ -75,6 +82,7 @@ name = "gpu_compositor"
 version = "0.1.0"
 
 [[package]]
+<<<<<<< HEAD
 name = "html_parser"
 version = "0.1.0"
 dependencies = [
@@ -87,6 +95,8 @@ name = "html_tokenizer"
 version = "0.1.0"
 
 [[package]]
+=======
+>>>>>>> main
 name = "javascript_runtime"
 version = "0.1.0"
 
@@ -107,6 +117,7 @@ name = "observability_system"
 version = "0.1.0"
 
 [[package]]
+<<<<<<< HEAD
 name = "paint_engine"
 version = "0.1.0"
 dependencies = [
@@ -114,10 +125,13 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> main
 name = "painting_engine"
 version = "0.1.0"
 dependencies = [
  "layout_engine",
+<<<<<<< HEAD
  "paint_engine",
 ]
 
@@ -126,6 +140,8 @@ name = "render_tree"
 version = "0.1.0"
 dependencies = [
  "dom_engine",
+=======
+>>>>>>> main
 ]
 
 [[package]]
@@ -133,6 +149,7 @@ name = "rendering_engine"
 version = "0.1.0"
 dependencies = [
  "dom_engine",
+<<<<<<< HEAD
  "html_parser",
  "html_tokenizer",
  "render_tree",
@@ -143,6 +160,8 @@ name = "resource_loader"
 version = "0.1.0"
 dependencies = [
  "networking_stack",
+=======
+>>>>>>> main
 ]
 
 [[package]]
