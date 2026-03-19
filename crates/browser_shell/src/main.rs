@@ -1,9 +1,11 @@
 use browser_shell::bookmark_manager::BookmarkManagerService;
+use browser_shell::capability_matrix::CapabilityMatrix;
 use browser_shell::history_manager::HistoryManagerService;
 use browser_shell::home_page::HomePage;
 use browser_shell::new_tab_page::NewTabPage;
 use browser_shell::pipeline::run_pipeline;
 use browser_shell::session_manager::{SessionManagerService, SessionMode};
+use browser_shell::settings_system::{BrowserSettings, PerformanceMode};
 use browser_shell::tab_manager::TabManagerService;
 
 fn main() -> Result<(), String> {
@@ -24,6 +26,19 @@ fn main() -> Result<(), String> {
             session.set_mode(SessionMode::Incognito);
             println!("Session mode: {:?}", session.state().mode);
             println!("Restore on startup: {}", session.state().restore_on_startup);
+            Ok(())
+        }
+        Some("--feature-report") => {
+            let mut settings = BrowserSettings::default();
+            if let Some(mode_flag) = args.next().as_deref() {
+                match mode_flag {
+                    "balanced" => settings.apply_mode(PerformanceMode::Balanced),
+                    "compat" => settings.apply_mode(PerformanceMode::MaximumCompatibility),
+                    _ => settings.apply_mode(PerformanceMode::Lightweight),
+                }
+            }
+            let report = CapabilityMatrix::baseline(&settings).to_report();
+            println!("{report}");
             Ok(())
         }
         Some("--showcase-modern-features") => {

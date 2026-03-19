@@ -46,6 +46,9 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
   - `cargo run -p browser_shell -- --home`
 - New tab one-pager multi-engine search interface:
   - `cargo run -p browser_shell -- --new-tab "rust browser engine"`
+- Lightweight Chrome-feature trajectory report:
+  - `cargo run -p browser_shell -- --feature-report`
+  - `cargo run -p browser_shell -- --feature-report balanced`
 
 ## Detailed project snapshot
 
