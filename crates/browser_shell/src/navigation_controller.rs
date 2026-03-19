@@ -35,3 +35,10 @@ mod tests {
         );
     }
 }
+<<<<<<< HEAD
+=======
+//! Navigation Controller module scaffold.
+
+#[derive(Debug, Default)]
+pub struct NavigationControllerService;
+>>>>>>> main
