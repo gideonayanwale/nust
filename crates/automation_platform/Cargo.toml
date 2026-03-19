@@ -1,0 +1,10 @@
+[package]
+name = "automation_platform"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+dom_engine = { path = "../dom_engine" }
+browser_shell = { path = "../browser_shell" }

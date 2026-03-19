@@ -1,0 +1,8 @@
+[package]
+name = "observability_system"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
