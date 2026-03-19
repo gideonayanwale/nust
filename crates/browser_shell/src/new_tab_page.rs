@@ -3,6 +3,10 @@
 use crate::search_engines::MultiEngineSearchPage;
 <<<<<<< HEAD
 use crate::ui_skin::UiSkin;
+<<<<<<< HEAD
+use crate::{settings_system::BrowserSettings, skin_registry::SkinRegistry};
+=======
+>>>>>>> main
 =======
 >>>>>>> main
 
@@ -44,6 +48,15 @@ impl NewTabPage {
             self.search.render_one_pager_html()
         )
     }
+<<<<<<< HEAD
+
+    pub fn with_settings(query: impl Into<String>, settings: &BrowserSettings) -> Self {
+        let mut page = Self::new(query);
+        page.skin = SkinRegistry::resolve(&settings.skin_mode);
+        page
+    }
+=======
+>>>>>>> main
 }
 
 #[cfg(test)]
@@ -58,7 +71,11 @@ mod tests {
         assert!(html.contains("home-option"));
         assert!(html.contains("search-input"));
 <<<<<<< HEAD
+<<<<<<< HEAD
+        assert!(html.contains("NUST Fusion"));
+=======
         assert!(html.contains("NUST Aurora"));
+>>>>>>> main
 =======
 >>>>>>> main
     }
