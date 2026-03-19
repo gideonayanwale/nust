@@ -1,0 +1,34 @@
+[workspace]
+members = [
+    "crates/browser_shell",
+    "crates/core_engine",
+    "crates/networking_stack",
+    "crates/rendering_engine",
+    "crates/layout_engine",
+    "crates/painting_engine",
+    "crates/gpu_compositor",
+    "crates/javascript_runtime",
+    "crates/dom_engine",
+    "crates/event_system",
+    "crates/storage_system",
+    "crates/security_layer",
+    "crates/automation_platform",
+    "crates/data_extraction_engine",
+    "crates/ai_platform",
+    "crates/distributed_browser_cluster",
+    "crates/extension_system",
+    "crates/devtools_platform",
+    "crates/observability_system",
+    "crates/resource_loader",
+    "crates/html_tokenizer",
+    "crates/html_parser",
+    "crates/render_tree",
+    "crates/paint_engine",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+license = "MIT"
+authors = ["NUST Engineering Team"]
