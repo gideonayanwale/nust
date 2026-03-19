@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //! Session manager with normal and incognito mode.
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -53,3 +54,9 @@ mod tests {
         assert!(!session.state().restore_on_startup);
     }
 }
+=======
+//! Session Manager module scaffold.
+
+#[derive(Debug, Default)]
+pub struct SessionManagerService;
+>>>>>>> main

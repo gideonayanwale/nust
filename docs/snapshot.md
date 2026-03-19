@@ -12,11 +12,14 @@ This snapshot summarizes what is currently implemented and runnable.
   - compute block layout
   - emit text paint commands
 - Browser shell interfaces:
+<<<<<<< HEAD
   - pinned/muted tabs state management
   - bookmark folders
   - searchable + recent history APIs
   - incognito session mode control
   - design system tokens (colors, spacing, typography, radius) for consistent shell skinning
+=======
+>>>>>>> main
   - Home surface (`--home`)
   - New Tab surface (`--new-tab <query>`)
   - multi-engine one-page search planning and rendering (Google, Bing, DuckDuckGo, Brave, Perplexity)
@@ -37,16 +40,22 @@ This snapshot summarizes what is currently implemented and runnable.
 - `cargo test`
 - `cargo run -p browser_shell -- --home`
 - `cargo run -p browser_shell -- --new-tab "multi engine search"`
+<<<<<<< HEAD
 - `cargo run -p browser_shell -- --showcase-modern-features`
+=======
+>>>>>>> main
 
 ## Visual references
 
 ![Architecture snapshot](images/nust-architecture-snapshot.svg)
 
 ![New tab UI mock](images/new-tab-ui-mock.svg)
+<<<<<<< HEAD
 
 
 ## Skill server connection status
 
 - Attempted to connect to curated skill source using the skill installer workflow.
 - Environment currently blocks GitHub curated index access with HTTP 403 via proxy tunnel, so remote skill installation is pending.
+=======
+>>>>>>> main

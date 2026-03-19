@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //! Lightweight history manager (modern browser primitive).
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -61,3 +62,9 @@ mod tests {
         assert_eq!(search[0].url, "https://rust-lang.org");
     }
 }
+=======
+//! History Manager module scaffold.
+
+#[derive(Debug, Default)]
+pub struct HistoryManagerService;
+>>>>>>> main

@@ -75,7 +75,11 @@ impl MultiEngineSearchPage {
             .iter()
             .map(|request| {
                 format!(
+<<<<<<< HEAD
                     "<li style=\"list-style:none;margin:10px 0;\"><a href=\"{}\" target=\"_blank\" style=\"display:flex;justify-content:space-between;padding:12px 14px;border-radius:12px;background:white;border:1px solid #d0d7de;text-decoration:none;color:#0f172a;\"><span>{}</span><span style=\"color:#2563eb;\">Open ↗</span></a></li>",
+=======
+                    "<li><a href=\"{}\" target=\"_blank\">{}</a></li>",
+>>>>>>> main
                     request.url,
                     request.engine.label()
                 )
@@ -84,7 +88,11 @@ impl MultiEngineSearchPage {
             .join("\n");
 
         format!(
+<<<<<<< HEAD
             "<section id=\"multi-engine-search\">\n  <h2 style=\"margin:0 0 10px 0;\">Search everywhere (one page)</h2>\n  <form style=\"display:flex;gap:10px;margin-bottom:16px;\">\n    <input id=\"search-input\" name=\"q\" value=\"{}\" placeholder=\"Search across engines\" style=\"flex:1;padding:12px;border-radius:10px;border:1px solid #9aa4b2;\" />\n    <button type=\"submit\" class=\"button\">Search</button>\n  </form>\n  <ul style=\"padding:0;margin:0;\">\n{}\n  </ul>\n</section>",
+=======
+            "<section id=\"multi-engine-search\">\n  <h1>Search everywhere (one page)</h1>\n  <form>\n    <input id=\"search-input\" name=\"q\" value=\"{}\" placeholder=\"Search across engines\" />\n    <button type=\"submit\">Search</button>\n  </form>\n  <ul>\n{}\n  </ul>\n</section>",
+>>>>>>> main
             self.query, cards
         )
     }

@@ -19,11 +19,14 @@ members = [
     "crates/extension_system",
     "crates/devtools_platform",
     "crates/observability_system",
+<<<<<<< HEAD
     "crates/resource_loader",
     "crates/html_tokenizer",
     "crates/html_parser",
     "crates/render_tree",
     "crates/paint_engine",
+=======
+>>>>>>> main
 ]
 resolver = "2"
 
