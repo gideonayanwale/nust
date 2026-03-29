@@ -2,6 +2,10 @@
 
 <<<<<<< HEAD
 use crate::ui_skin::UiSkin;
+<<<<<<< HEAD
+use crate::{settings_system::BrowserSettings, skin_registry::SkinRegistry};
+=======
+>>>>>>> main
 
 =======
 >>>>>>> main
@@ -29,6 +33,15 @@ impl Default for HomePage {
 }
 
 impl HomePage {
+<<<<<<< HEAD
+    pub fn with_settings(settings: &BrowserSettings) -> Self {
+        let mut page = Self::default();
+        page.skin = SkinRegistry::resolve(&settings.skin_mode);
+        page
+    }
+
+=======
+>>>>>>> main
     pub fn render_html(&self) -> String {
         let shortcuts = self
             .shortcuts
@@ -64,7 +77,11 @@ mod tests {
         assert!(html.contains("Welcome to NUST Browser OS"));
         assert!(html.contains("Automation"));
 <<<<<<< HEAD
+<<<<<<< HEAD
+        assert!(html.contains("NUST Fusion"));
+=======
         assert!(html.contains("NUST Aurora"));
+>>>>>>> main
 =======
 >>>>>>> main
     }

@@ -1,6 +1,10 @@
 //! Tab management for browser shell.
 
 use crate::new_tab_page::NewTabPage;
+<<<<<<< HEAD
+use crate::tab_process_registry::TabProcessInfo;
+=======
+>>>>>>> main
 
 #[derive(Debug, Clone)]
 pub struct BrowserTab {
@@ -11,6 +15,10 @@ pub struct BrowserTab {
 <<<<<<< HEAD
     pub pinned: bool,
     pub muted: bool,
+<<<<<<< HEAD
+    pub process: Option<TabProcessInfo>,
+=======
+>>>>>>> main
 =======
 >>>>>>> main
 }
@@ -32,6 +40,10 @@ impl TabManagerService {
 <<<<<<< HEAD
             pinned: false,
             muted: false,
+<<<<<<< HEAD
+            process: None,
+=======
+>>>>>>> main
 =======
 >>>>>>> main
         };
@@ -53,11 +65,25 @@ impl TabManagerService {
         }
     }
 
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> main
 >>>>>>> main
     pub fn tabs(&self) -> &[BrowserTab] {
         &self.tabs
     }
+
+    pub fn attach_process(&mut self, id: usize, process: TabProcessInfo) {
+        if let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) {
+            tab.process = Some(process);
+        }
+    }
+=======
+    pub fn tabs(&self) -> &[BrowserTab] {
+        &self.tabs
+    }
+>>>>>>> main
 }
 
 #[cfg(test)]
@@ -84,6 +110,19 @@ mod tests {
         assert!(updated.pinned);
         assert!(updated.muted);
     }
+<<<<<<< HEAD
+
+    #[test]
+    fn can_attach_process_record_to_tab() {
+        let mut manager = TabManagerService::default();
+        let tab = manager.open_new_tab("automation");
+        let mut registry = crate::tab_process_registry::TabProcessRegistry::default();
+        let process = registry.register_thread_process_for_tab(tab.id);
+        manager.attach_process(tab.id, process);
+        assert!(manager.tabs()[0].process.is_some());
+    }
+=======
+>>>>>>> main
 }
 =======
 }

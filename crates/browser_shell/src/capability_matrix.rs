@@ -44,6 +44,19 @@ impl CapabilityMatrix {
                     notes: "Scaffold present; runtime behavior partial",
                 },
                 CapabilityStatus {
+<<<<<<< HEAD
+                    feature: "Per-tab thread process registry",
+                    available: settings.per_tab_thread_process_enabled,
+                    notes: "Each tab can be attached to a dedicated worker thread record",
+                },
+                CapabilityStatus {
+                    feature: "Automation workflows",
+                    available: settings.automation_registry_enabled,
+                    notes: "Default automation scripts can be registered per tab",
+                },
+                CapabilityStatus {
+=======
+>>>>>>> main
                     feature: "GPU compositing",
                     available: true,
                     notes: "Compositor crate scaffold present",
