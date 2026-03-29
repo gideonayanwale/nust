@@ -54,6 +54,22 @@ impl CapabilityMatrix {
                     notes: "Default automation scripts can be registered per tab",
                 },
                 CapabilityStatus {
+                    feature: "Premium download tray",
+                    available: settings.downloads_enabled,
+                    notes: "Queue with acceleration profile controlled by settings",
+                },
+                CapabilityStatus {
+                    feature: "Extension library (app-wide)",
+                    available: settings.extension_library_enabled
+                        && settings.global_extension_runtime_enabled,
+                    notes: "Installed extensions can activate across the shell",
+                },
+                CapabilityStatus {
+                    feature: "Task manager",
+                    available: settings.task_manager_enabled,
+                    notes: "Monitors tabs, tab processes, and downloads",
+                },
+                CapabilityStatus {
                     feature: "GPU compositing",
                     available: true,
                     notes: "Compositor crate scaffold present",

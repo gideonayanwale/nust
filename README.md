@@ -54,6 +54,16 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
   - `cargo run -p browser_shell -- --new-tab "automation browser" --skin aurora`
 - Automation + per-tab process showcase:
   - `cargo run -p browser_shell -- --showcase-modern-features`
+- Download tray demo:
+  - `cargo run -p browser_shell -- --download-tray`
+- Extension library demo:
+  - `cargo run -p browser_shell -- --extensions`
+- Task manager demo:
+  - `cargo run -p browser_shell -- --task-manager`
+- Settings control toggles:
+  - `cargo run -p browser_shell -- --showcase-modern-features --disable-downloads`
+  - `cargo run -p browser_shell -- --showcase-modern-features --disable-extensions`
+  - `cargo run -p browser_shell -- --showcase-modern-features --disable-task-manager`
 
 ## Detailed project snapshot
 

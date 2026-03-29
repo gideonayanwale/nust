@@ -13,6 +13,9 @@ Goal: move toward broad browser feature parity while keeping NUST resource-effic
 - capability matrix report to track parity trajectory and runtime posture
 - per-tab thread process registry hook in tab manager
 - automation workflow registry for autopilot-ready tabs
+- download tray with settings-driven acceleration profile
+- extension library with app-wide activation controls
+- task manager snapshots for tabs, processes, and downloads
 
 ## Next steps
 1. tie capability matrix to real subsystem readiness checks

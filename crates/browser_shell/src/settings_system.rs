@@ -24,6 +24,11 @@ pub struct BrowserSettings {
     pub extensions_enabled: bool,
     pub automation_registry_enabled: bool,
     pub automation_autopilot_enabled: bool,
+    pub downloads_enabled: bool,
+    pub premium_download_acceleration_enabled: bool,
+    pub extension_library_enabled: bool,
+    pub global_extension_runtime_enabled: bool,
+    pub task_manager_enabled: bool,
 }
 
 impl Default for BrowserSettings {
@@ -38,6 +43,11 @@ impl Default for BrowserSettings {
             extensions_enabled: true,
             automation_registry_enabled: true,
             automation_autopilot_enabled: true,
+            downloads_enabled: true,
+            premium_download_acceleration_enabled: true,
+            extension_library_enabled: true,
+            global_extension_runtime_enabled: true,
+            task_manager_enabled: true,
         }
     }
 }
@@ -50,16 +60,19 @@ impl BrowserSettings {
                 self.tab_discarding_enabled = true;
                 self.per_tab_thread_process_enabled = true;
                 self.preload_pages_enabled = false;
+                self.premium_download_acceleration_enabled = false;
             }
             PerformanceMode::Balanced => {
                 self.tab_discarding_enabled = true;
                 self.per_tab_thread_process_enabled = true;
                 self.preload_pages_enabled = true;
+                self.premium_download_acceleration_enabled = true;
             }
             PerformanceMode::MaximumCompatibility => {
                 self.tab_discarding_enabled = false;
                 self.per_tab_thread_process_enabled = true;
                 self.preload_pages_enabled = true;
+                self.premium_download_acceleration_enabled = true;
             }
         }
     }
@@ -84,5 +97,8 @@ mod tests {
         assert!(settings.per_tab_thread_process_enabled);
         assert!(settings.automation_registry_enabled);
         assert!(settings.automation_autopilot_enabled);
+        assert!(settings.downloads_enabled);
+        assert!(settings.extension_library_enabled);
+        assert!(settings.task_manager_enabled);
     }
 }
