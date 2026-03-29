@@ -19,6 +19,7 @@ pub mod tab_manager;
 pub mod tab_process_registry;
 pub mod task_manager;
 pub mod ui_skin;
+pub mod upload_manager;
 pub mod window_manager;
 pub mod workspace_manager;
 

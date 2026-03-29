@@ -60,10 +60,14 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
   - `cargo run -p browser_shell -- --extensions`
 - Task manager demo:
   - `cargo run -p browser_shell -- --task-manager`
+- Upload on-demand tray demo (all file types):
+  - `cargo run -p browser_shell -- --upload-tray`
+  - `cargo run -p browser_shell -- --upload-tray --upload-latency-ms 450`
 - Settings control toggles:
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-downloads`
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-extensions`
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-task-manager`
+  - `cargo run -p browser_shell -- --showcase-modern-features --disable-uploads`
 
 ## Detailed project snapshot
 

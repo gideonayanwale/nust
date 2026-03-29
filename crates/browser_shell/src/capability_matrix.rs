@@ -70,6 +70,11 @@ impl CapabilityMatrix {
                     notes: "Monitors tabs, tab processes, and downloads",
                 },
                 CapabilityStatus {
+                    feature: "Upload-on-demand tray",
+                    available: settings.upload_on_demand_enabled,
+                    notes: "Supports arbitrary file types with configurable upload latency",
+                },
+                CapabilityStatus {
                     feature: "GPU compositing",
                     available: true,
                     notes: "Compositor crate scaffold present",

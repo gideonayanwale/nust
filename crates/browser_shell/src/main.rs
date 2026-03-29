@@ -12,6 +12,7 @@ use browser_shell::settings_system::{BrowserSettings, PerformanceMode, SkinMode}
 use browser_shell::tab_manager::TabManagerService;
 use browser_shell::tab_process_registry::TabProcessRegistry;
 use browser_shell::task_manager::TaskManagerService;
+use browser_shell::upload_manager::UploadManagerService;
 
 fn main() -> Result<(), String> {
     let mut args = std::env::args().skip(1).collect::<Vec<_>>();
@@ -43,6 +44,18 @@ fn main() -> Result<(), String> {
     if let Some(idx) = args.iter().position(|arg| arg == "--disable-task-manager") {
         settings.task_manager_enabled = false;
         args.remove(idx);
+    }
+    if let Some(idx) = args.iter().position(|arg| arg == "--disable-uploads") {
+        settings.upload_on_demand_enabled = false;
+        args.remove(idx);
+    }
+    if let Some(idx) = args.iter().position(|arg| arg == "--upload-latency-ms") {
+        if let Some(raw) = args.get(idx + 1) {
+            if let Ok(latency) = raw.parse::<u64>() {
+                settings.upload_latency_ms = latency;
+            }
+        }
+        args.drain(idx..=(idx + 1).min(args.len() - 1));
     }
 
     let mut args = args.into_iter();
@@ -95,6 +108,10 @@ fn main() -> Result<(), String> {
             println!("{}", run_task_manager_demo(&settings));
             Ok(())
         }
+        Some("--upload-tray") => {
+            println!("{}", run_upload_tray_demo(&settings));
+            Ok(())
+        }
         Some(url) => {
             let output = run_pipeline(url)?;
             println!("NUST minimal renderer output for {url}:");
@@ -120,6 +137,7 @@ fn showcase_modern_features(settings: &BrowserSettings) {
     let mut process_registry = TabProcessRegistry::default();
     let mut automation_registry = AutomationRegistry::default();
     let mut downloads = DownloadManagerService::default();
+    let mut uploads = UploadManagerService::default();
     let mut extensions = ExtensionLibraryService::default();
     let task_manager = TaskManagerService;
     let tab = tabs.open_new_tab("browser features");
@@ -135,6 +153,17 @@ fn showcase_modern_features(settings: &BrowserSettings) {
         "https://cdn.nust.dev/preview.zip",
     );
     downloads.start_all(settings);
+    uploads.queue_on_demand(
+        "session-recording.webm",
+        "video/webm",
+        "https://upload.nust.dev/session",
+    );
+    uploads.queue_on_demand(
+        "project-archive.tar.zst",
+        "application/zstd",
+        "https://upload.nust.dev/archive",
+    );
+    uploads.run_on_demand(settings);
     extensions.install("privacy-guard", "Privacy Guard");
     extensions.install("dev-hud", "Developer HUD");
     extensions.activate_globally(settings);
@@ -167,6 +196,7 @@ fn showcase_modern_features(settings: &BrowserSettings) {
         automation_registry.workflow_count()
     );
     println!("- {}", downloads.tray_summary());
+    println!("- {}", uploads.tray_summary());
     println!("- {}", extensions.summary());
     if let Some(snapshot) = task_manager.snapshot(&tabs, &downloads, settings) {
         println!(
@@ -219,4 +249,25 @@ fn run_task_manager_demo(settings: &BrowserSettings) -> String {
         .snapshot(&tabs, &downloads, settings)
         .map(|snapshot| TaskManagerService::render(&snapshot))
         .unwrap_or_else(|| "Task manager is disabled by settings".to_string())
+}
+
+fn run_upload_tray_demo(settings: &BrowserSettings) -> String {
+    let mut uploads = UploadManagerService::default();
+    uploads.queue_on_demand(
+        "design.psd",
+        "image/vnd.adobe.photoshop",
+        "https://upload.nust.dev/design",
+    );
+    uploads.queue_on_demand(
+        "analytics.parquet",
+        "application/vnd.apache.parquet",
+        "https://upload.nust.dev/data",
+    );
+    uploads.queue_on_demand(
+        "backup.iso",
+        "application/x-iso9660-image",
+        "https://upload.nust.dev/system",
+    );
+    uploads.run_on_demand(settings);
+    uploads.tray_summary()
 }

@@ -16,6 +16,7 @@ Goal: move toward broad browser feature parity while keeping NUST resource-effic
 - download tray with settings-driven acceleration profile
 - extension library with app-wide activation controls
 - task manager snapshots for tabs, processes, and downloads
+- upload-on-demand tray for all file types with settings-driven latency control
 
 ## Next steps
 1. tie capability matrix to real subsystem readiness checks

@@ -29,6 +29,8 @@ pub struct BrowserSettings {
     pub extension_library_enabled: bool,
     pub global_extension_runtime_enabled: bool,
     pub task_manager_enabled: bool,
+    pub upload_on_demand_enabled: bool,
+    pub upload_latency_ms: u64,
 }
 
 impl Default for BrowserSettings {
@@ -48,6 +50,8 @@ impl Default for BrowserSettings {
             extension_library_enabled: true,
             global_extension_runtime_enabled: true,
             task_manager_enabled: true,
+            upload_on_demand_enabled: true,
+            upload_latency_ms: 180,
         }
     }
 }
@@ -61,18 +65,21 @@ impl BrowserSettings {
                 self.per_tab_thread_process_enabled = true;
                 self.preload_pages_enabled = false;
                 self.premium_download_acceleration_enabled = false;
+                self.upload_latency_ms = 320;
             }
             PerformanceMode::Balanced => {
                 self.tab_discarding_enabled = true;
                 self.per_tab_thread_process_enabled = true;
                 self.preload_pages_enabled = true;
                 self.premium_download_acceleration_enabled = true;
+                self.upload_latency_ms = 180;
             }
             PerformanceMode::MaximumCompatibility => {
                 self.tab_discarding_enabled = false;
                 self.per_tab_thread_process_enabled = true;
                 self.preload_pages_enabled = true;
                 self.premium_download_acceleration_enabled = true;
+                self.upload_latency_ms = 120;
             }
         }
     }
@@ -100,5 +107,7 @@ mod tests {
         assert!(settings.downloads_enabled);
         assert!(settings.extension_library_enabled);
         assert!(settings.task_manager_enabled);
+        assert!(settings.upload_on_demand_enabled);
+        assert!(settings.upload_latency_ms > 0);
     }
 }
