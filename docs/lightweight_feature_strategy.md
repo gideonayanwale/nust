@@ -21,6 +21,7 @@ Goal: move toward broad browser feature parity while keeping NUST resource-effic
 - split-screen tab view + home button affordance per tab
 - tab suggestions and AI insights for contextual navigation
 - account-level sync snapshot for configured browser state
+- desktop bookmark tab with user-movable position controls
 
 ## Next steps
 1. tie capability matrix to real subsystem readiness checks

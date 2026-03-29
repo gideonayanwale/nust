@@ -7,7 +7,7 @@ pub struct Bookmark {
     pub folder: Option<String>,
 }
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Clone)]
 pub struct BookmarkManagerService {
     bookmarks: Vec<Bookmark>,
 }

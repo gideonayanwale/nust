@@ -67,12 +67,16 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
   - `cargo run -p browser_shell -- --tab-insights`
 - Account sync snapshot:
   - `cargo run -p browser_shell -- --sync-account`
+- Desktop bookmark tab controls:
+  - `cargo run -p browser_shell -- --home --bookmark-tab-position left`
+  - `cargo run -p browser_shell -- --new-tab "work" --bookmark-tab-position bottom`
 - Settings control toggles:
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-downloads`
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-extensions`
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-task-manager`
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-uploads`
   - `cargo run -p browser_shell -- --sync-account --disable-account-sync`
+  - `cargo run -p browser_shell -- --home --disable-bookmark-tab`
 
 ## Detailed project snapshot
 

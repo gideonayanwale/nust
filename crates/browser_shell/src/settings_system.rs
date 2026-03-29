@@ -13,6 +13,14 @@ pub enum SkinMode {
     EdgeChromeBraveFusion,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum BookmarkTabPosition {
+    Top,
+    Left,
+    Right,
+    Bottom,
+}
+
 #[derive(Debug, Clone)]
 pub struct BrowserSettings {
     pub performance_mode: PerformanceMode,
@@ -32,6 +40,8 @@ pub struct BrowserSettings {
     pub upload_on_demand_enabled: bool,
     pub upload_latency_ms: u64,
     pub account_sync_enabled: bool,
+    pub desktop_bookmark_tab_enabled: bool,
+    pub desktop_bookmark_tab_position: BookmarkTabPosition,
 }
 
 impl Default for BrowserSettings {
@@ -54,6 +64,8 @@ impl Default for BrowserSettings {
             upload_on_demand_enabled: true,
             upload_latency_ms: 180,
             account_sync_enabled: true,
+            desktop_bookmark_tab_enabled: true,
+            desktop_bookmark_tab_position: BookmarkTabPosition::Top,
         }
     }
 }
@@ -89,7 +101,7 @@ impl BrowserSettings {
 
 #[cfg(test)]
 mod tests {
-    use super::{BrowserSettings, PerformanceMode, SkinMode};
+    use super::{BookmarkTabPosition, BrowserSettings, PerformanceMode, SkinMode};
 
     #[test]
     fn lightweight_mode_prefers_lower_resource_usage() {
@@ -112,5 +124,10 @@ mod tests {
         assert!(settings.upload_on_demand_enabled);
         assert!(settings.upload_latency_ms > 0);
         assert!(settings.account_sync_enabled);
+        assert!(settings.desktop_bookmark_tab_enabled);
+        assert_eq!(
+            settings.desktop_bookmark_tab_position,
+            BookmarkTabPosition::Top
+        );
     }
 }

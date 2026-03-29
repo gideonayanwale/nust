@@ -9,7 +9,9 @@ use browser_shell::home_page::HomePage;
 use browser_shell::new_tab_page::NewTabPage;
 use browser_shell::pipeline::run_pipeline;
 use browser_shell::session_manager::{SessionManagerService, SessionMode};
-use browser_shell::settings_system::{BrowserSettings, PerformanceMode, SkinMode};
+use browser_shell::settings_system::{
+    BookmarkTabPosition, BrowserSettings, PerformanceMode, SkinMode,
+};
 use browser_shell::tab_intelligence::TabIntelligenceService;
 use browser_shell::tab_manager::TabManagerService;
 use browser_shell::tab_process_registry::TabProcessRegistry;
@@ -54,6 +56,21 @@ fn main() -> Result<(), String> {
     if let Some(idx) = args.iter().position(|arg| arg == "--disable-account-sync") {
         settings.account_sync_enabled = false;
         args.remove(idx);
+    }
+    if let Some(idx) = args.iter().position(|arg| arg == "--disable-bookmark-tab") {
+        settings.desktop_bookmark_tab_enabled = false;
+        args.remove(idx);
+    }
+    if let Some(idx) = args.iter().position(|arg| arg == "--bookmark-tab-position") {
+        if let Some(raw) = args.get(idx + 1) {
+            settings.desktop_bookmark_tab_position = match raw.as_str() {
+                "left" => BookmarkTabPosition::Left,
+                "right" => BookmarkTabPosition::Right,
+                "bottom" => BookmarkTabPosition::Bottom,
+                _ => BookmarkTabPosition::Top,
+            };
+        }
+        args.drain(idx..=(idx + 1).min(args.len() - 1));
     }
     if let Some(idx) = args.iter().position(|arg| arg == "--upload-latency-ms") {
         if let Some(raw) = args.get(idx + 1) {

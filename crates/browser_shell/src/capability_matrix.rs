@@ -80,6 +80,11 @@ impl CapabilityMatrix {
                     notes: "8-column row with up to 64 pinned entries",
                 },
                 CapabilityStatus {
+                    feature: "Desktop bookmark tab",
+                    available: settings.desktop_bookmark_tab_enabled,
+                    notes: "Movable bookmark tab with user-controlled position in settings",
+                },
+                CapabilityStatus {
                     feature: "Split-screen tabs + home tab button",
                     available: true,
                     notes: "Tab model supports home affordance and split-view groups",

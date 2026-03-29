@@ -4,6 +4,7 @@ pub mod account_sync;
 pub mod address_bar;
 pub mod automation_registry;
 pub mod bookmark_manager;
+pub mod bookmark_tab;
 pub mod capability_matrix;
 pub mod design_system;
 pub mod download_manager;
