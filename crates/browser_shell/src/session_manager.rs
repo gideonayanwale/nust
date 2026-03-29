@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //! Session manager with normal and incognito mode.
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -32,8 +31,9 @@ impl Default for SessionManagerService {
 impl SessionManagerService {
     pub fn set_mode(&mut self, mode: SessionMode) {
         self.state.mode = mode;
-        if matches!(mode, SessionMode::Incognito) {
-            self.state.restore_on_startup = false;
+        match mode {
+            SessionMode::Incognito => self.state.restore_on_startup = false,
+            SessionMode::Normal => self.state.restore_on_startup = true,
         }
     }
 
@@ -53,10 +53,14 @@ mod tests {
         assert_eq!(session.state().mode, SessionMode::Incognito);
         assert!(!session.state().restore_on_startup);
     }
-}
-=======
-//! Session Manager module scaffold.
 
-#[derive(Debug, Default)]
-pub struct SessionManagerService;
->>>>>>> main
+    #[test]
+    fn returning_to_normal_reenables_restore() {
+        let mut session = SessionManagerService::default();
+        session.set_mode(SessionMode::Incognito);
+        session.set_mode(SessionMode::Normal);
+
+        assert_eq!(session.state().mode, SessionMode::Normal);
+        assert!(session.state().restore_on_startup);
+    }
+}

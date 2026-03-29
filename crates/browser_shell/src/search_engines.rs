@@ -21,7 +21,7 @@ impl SearchEngine {
     }
 
     pub fn search_url(self, query: &str) -> String {
-        let q = query.trim().replace(' ', "+");
+        let q = percent_encode_query_component(query.trim());
         match self {
             SearchEngine::Google => format!("https://www.google.com/search?q={q}"),
             SearchEngine::Bing => format!("https://www.bing.com/search?q={q}"),
@@ -70,16 +70,13 @@ impl MultiEngineSearchPage {
     }
 
     pub fn render_one_pager_html(&self) -> String {
+        let escaped_query = escape_html_attribute(&self.query);
         let cards = self
             .planned_requests()
             .iter()
             .map(|request| {
                 format!(
-<<<<<<< HEAD
                     "<li style=\"list-style:none;margin:10px 0;\"><a href=\"{}\" target=\"_blank\" style=\"display:flex;justify-content:space-between;padding:12px 14px;border-radius:12px;background:white;border:1px solid #d0d7de;text-decoration:none;color:#0f172a;\"><span>{}</span><span style=\"color:#2563eb;\">Open ↗</span></a></li>",
-=======
-                    "<li><a href=\"{}\" target=\"_blank\">{}</a></li>",
->>>>>>> main
                     request.url,
                     request.engine.label()
                 )
@@ -88,14 +85,40 @@ impl MultiEngineSearchPage {
             .join("\n");
 
         format!(
-<<<<<<< HEAD
             "<section id=\"multi-engine-search\">\n  <h2 style=\"margin:0 0 10px 0;\">Search everywhere (one page)</h2>\n  <form style=\"display:flex;gap:10px;margin-bottom:16px;\">\n    <input id=\"search-input\" name=\"q\" value=\"{}\" placeholder=\"Search across engines\" style=\"flex:1;padding:12px;border-radius:10px;border:1px solid #9aa4b2;\" />\n    <button type=\"submit\" class=\"button\">Search</button>\n  </form>\n  <ul style=\"padding:0;margin:0;\">\n{}\n  </ul>\n</section>",
-=======
-            "<section id=\"multi-engine-search\">\n  <h1>Search everywhere (one page)</h1>\n  <form>\n    <input id=\"search-input\" name=\"q\" value=\"{}\" placeholder=\"Search across engines\" />\n    <button type=\"submit\">Search</button>\n  </form>\n  <ul>\n{}\n  </ul>\n</section>",
->>>>>>> main
-            self.query, cards
+            escaped_query, cards
         )
     }
+}
+
+fn percent_encode_query_component(input: &str) -> String {
+    let mut output = String::with_capacity(input.len());
+    for &byte in input.as_bytes() {
+        if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'_' | b'.' | b'~') {
+            output.push(byte as char);
+        } else if byte == b' ' {
+            output.push('+');
+        } else {
+            output.push('%');
+            output.push_str(&format!("{byte:02X}"));
+        }
+    }
+    output
+}
+
+fn escape_html_attribute(input: &str) -> String {
+    let mut escaped = String::with_capacity(input.len());
+    for ch in input.chars() {
+        match ch {
+            '&' => escaped.push_str("&amp;"),
+            '"' => escaped.push_str("&quot;"),
+            '\'' => escaped.push_str("&#x27;"),
+            '<' => escaped.push_str("&lt;"),
+            '>' => escaped.push_str("&gt;"),
+            _ => escaped.push(ch),
+        }
+    }
+    escaped
 }
 
 #[cfg(test)]
@@ -122,5 +145,28 @@ mod tests {
         assert!(html.contains("search-input"));
         assert!(html.contains("Search everywhere"));
         assert!(html.contains("Perplexity"));
+    }
+
+    #[test]
+    fn encodes_reserved_query_characters_for_urls() {
+        let query = "a&b=#\"test";
+        let page = MultiEngineSearchPage::innovative_default(query);
+        let encoded = page
+            .planned_requests()
+            .into_iter()
+            .find(|r| r.engine == SearchEngine::Google)
+            .expect("expected Google request")
+            .url;
+
+        assert!(encoded.ends_with("q=a%26b%3D%23%22test"));
+    }
+
+    #[test]
+    fn escapes_query_when_rendering_search_input() {
+        let page = MultiEngineSearchPage::innovative_default("x\" autofocus");
+        let html = page.render_one_pager_html();
+
+        assert!(html.contains("value=\"x&quot; autofocus\""));
+        assert!(!html.contains("value=\"x\" autofocus\""));
     }
 }
