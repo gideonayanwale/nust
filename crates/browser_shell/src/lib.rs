@@ -1,5 +1,6 @@
 //! Subsystem crate for NUST.
 
+pub mod account_sync;
 pub mod address_bar;
 pub mod automation_registry;
 pub mod bookmark_manager;
@@ -15,6 +16,7 @@ pub mod search_engines;
 pub mod session_manager;
 pub mod settings_system;
 pub mod skin_registry;
+pub mod tab_intelligence;
 pub mod tab_manager;
 pub mod tab_process_registry;
 pub mod task_manager;

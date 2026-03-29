@@ -17,6 +17,10 @@ Goal: move toward broad browser feature parity while keeping NUST resource-effic
 - extension library with app-wide activation controls
 - task manager snapshots for tabs, processes, and downloads
 - upload-on-demand tray for all file types with settings-driven latency control
+- home pinned-app dashboard (8 columns, max 64 pins)
+- split-screen tab view + home button affordance per tab
+- tab suggestions and AI insights for contextual navigation
+- account-level sync snapshot for configured browser state
 
 ## Next steps
 1. tie capability matrix to real subsystem readiness checks

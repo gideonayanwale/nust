@@ -31,6 +31,7 @@ pub struct BrowserSettings {
     pub task_manager_enabled: bool,
     pub upload_on_demand_enabled: bool,
     pub upload_latency_ms: u64,
+    pub account_sync_enabled: bool,
 }
 
 impl Default for BrowserSettings {
@@ -52,6 +53,7 @@ impl Default for BrowserSettings {
             task_manager_enabled: true,
             upload_on_demand_enabled: true,
             upload_latency_ms: 180,
+            account_sync_enabled: true,
         }
     }
 }
@@ -109,5 +111,6 @@ mod tests {
         assert!(settings.task_manager_enabled);
         assert!(settings.upload_on_demand_enabled);
         assert!(settings.upload_latency_ms > 0);
+        assert!(settings.account_sync_enabled);
     }
 }

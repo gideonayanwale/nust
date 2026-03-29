@@ -75,6 +75,26 @@ impl CapabilityMatrix {
                     notes: "Supports arbitrary file types with configurable upload latency",
                 },
                 CapabilityStatus {
+                    feature: "Home pinned app grid",
+                    available: true,
+                    notes: "8-column row with up to 64 pinned entries",
+                },
+                CapabilityStatus {
+                    feature: "Split-screen tabs + home tab button",
+                    available: true,
+                    notes: "Tab model supports home affordance and split-view groups",
+                },
+                CapabilityStatus {
+                    feature: "Tab suggestions + AI insights",
+                    available: true,
+                    notes: "History-assisted recommendation and insight generation",
+                },
+                CapabilityStatus {
+                    feature: "Account state sync",
+                    available: settings.account_sync_enabled,
+                    notes: "Configured states can sync to the user account snapshot",
+                },
+                CapabilityStatus {
                     feature: "GPU compositing",
                     available: true,
                     notes: "Compositor crate scaffold present",

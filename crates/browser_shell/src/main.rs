@@ -1,3 +1,4 @@
+use browser_shell::account_sync::AccountSyncService;
 use browser_shell::automation_registry::AutomationRegistry;
 use browser_shell::bookmark_manager::BookmarkManagerService;
 use browser_shell::capability_matrix::CapabilityMatrix;
@@ -9,6 +10,7 @@ use browser_shell::new_tab_page::NewTabPage;
 use browser_shell::pipeline::run_pipeline;
 use browser_shell::session_manager::{SessionManagerService, SessionMode};
 use browser_shell::settings_system::{BrowserSettings, PerformanceMode, SkinMode};
+use browser_shell::tab_intelligence::TabIntelligenceService;
 use browser_shell::tab_manager::TabManagerService;
 use browser_shell::tab_process_registry::TabProcessRegistry;
 use browser_shell::task_manager::TaskManagerService;
@@ -47,6 +49,10 @@ fn main() -> Result<(), String> {
     }
     if let Some(idx) = args.iter().position(|arg| arg == "--disable-uploads") {
         settings.upload_on_demand_enabled = false;
+        args.remove(idx);
+    }
+    if let Some(idx) = args.iter().position(|arg| arg == "--disable-account-sync") {
+        settings.account_sync_enabled = false;
         args.remove(idx);
     }
     if let Some(idx) = args.iter().position(|arg| arg == "--upload-latency-ms") {
@@ -112,6 +118,14 @@ fn main() -> Result<(), String> {
             println!("{}", run_upload_tray_demo(&settings));
             Ok(())
         }
+        Some("--tab-insights") => {
+            println!("{}", run_tab_insights_demo());
+            Ok(())
+        }
+        Some("--sync-account") => {
+            println!("{}", run_account_sync_demo(&settings));
+            Ok(())
+        }
         Some(url) => {
             let output = run_pipeline(url)?;
             println!("NUST minimal renderer output for {url}:");
@@ -141,6 +155,8 @@ fn showcase_modern_features(settings: &BrowserSettings) {
     let mut extensions = ExtensionLibraryService::default();
     let task_manager = TaskManagerService;
     let tab = tabs.open_new_tab("browser features");
+    let adjacent = tabs.open_new_tab("split workspace");
+    tabs.open_split_screen(tab.id, adjacent.id);
     let process = process_registry.register_thread_process_for_tab(tab.id);
     tabs.attach_process(tab.id, process);
     tabs.pin_tab(tab.id);
@@ -198,6 +214,7 @@ fn showcase_modern_features(settings: &BrowserSettings) {
     println!("- {}", downloads.tray_summary());
     println!("- {}", uploads.tray_summary());
     println!("- {}", extensions.summary());
+    println!("- split views: {}", tabs.split_groups().len());
     if let Some(snapshot) = task_manager.snapshot(&tabs, &downloads, settings) {
         println!(
             "- {}",
@@ -270,4 +287,47 @@ fn run_upload_tray_demo(settings: &BrowserSettings) -> String {
     );
     uploads.run_on_demand(settings);
     uploads.tray_summary()
+}
+
+fn run_tab_insights_demo() -> String {
+    let mut history = HistoryManagerService::default();
+    history.visit(
+        "https://news.example.com/ai",
+        "AI News Daily",
+        1_700_000_000_111,
+    );
+    history.visit(
+        "https://docs.rust-lang.org/book",
+        "Rust Book",
+        1_700_000_000_222,
+    );
+    let service = TabIntelligenceService;
+    let insights = service.suggest_for_query("ai", &history);
+    let formatted = insights
+        .iter()
+        .map(|insight| format!("• {} | {}", insight.suggestion, insight.ai_insight))
+        .collect::<Vec<_>>()
+        .join("\n");
+    format!("Tab Suggestions + AI Insights\n{formatted}")
+}
+
+fn run_account_sync_demo(settings: &BrowserSettings) -> String {
+    let mut tabs = TabManagerService::default();
+    let a = tabs.open_new_tab("home");
+    let b = tabs.open_new_tab("work");
+    tabs.open_split_screen(a.id, b.id);
+    let mut sync = AccountSyncService::default();
+    if let Some(snapshot) = sync.sync_to_account("user@example.com", settings, &tabs) {
+        format!(
+            "Synced account {}: tabs={}, split_views={}, uploads={}, downloads={}, extensions={}",
+            snapshot.account_id,
+            snapshot.open_tab_count,
+            snapshot.split_view_count,
+            snapshot.uploads_enabled,
+            snapshot.downloads_enabled,
+            snapshot.extension_library_enabled
+        )
+    } else {
+        "Account sync disabled by settings".to_string()
+    }
 }

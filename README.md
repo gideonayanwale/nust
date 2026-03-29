@@ -63,11 +63,16 @@ NUST currently includes a modular Rust workspace with subsystem boundaries, a wo
 - Upload on-demand tray demo (all file types):
   - `cargo run -p browser_shell -- --upload-tray`
   - `cargo run -p browser_shell -- --upload-tray --upload-latency-ms 450`
+- Tab suggestions + AI insights:
+  - `cargo run -p browser_shell -- --tab-insights`
+- Account sync snapshot:
+  - `cargo run -p browser_shell -- --sync-account`
 - Settings control toggles:
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-downloads`
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-extensions`
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-task-manager`
   - `cargo run -p browser_shell -- --showcase-modern-features --disable-uploads`
+  - `cargo run -p browser_shell -- --sync-account --disable-account-sync`
 
 ## Detailed project snapshot
 
