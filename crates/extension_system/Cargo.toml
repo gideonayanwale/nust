@@ -1,4 +1,5 @@
 [package]
 name = "extension_system"
+edition = "2021"
 
 [dependencies]

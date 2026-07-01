@@ -1,4 +1,5 @@
 [package]
 name = "html_tokenizer"
+edition = "2021"
 
 [dependencies]

@@ -1,4 +1,5 @@
 [package]
 name = "dom_engine"
+edition = "2021"
 
 [dependencies]

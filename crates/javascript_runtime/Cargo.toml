@@ -1,4 +1,5 @@
 [package]
 name = "javascript_runtime"
+edition = "2021"
 
 [dependencies]

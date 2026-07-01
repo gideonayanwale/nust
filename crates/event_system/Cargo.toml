@@ -1,4 +1,5 @@
 [package]
 name = "event_system"
+edition = "2021"
 
 [dependencies]

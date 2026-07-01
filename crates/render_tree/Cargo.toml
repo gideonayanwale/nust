@@ -1,5 +1,6 @@
 [package]
 name = "render_tree"
+edition = "2021"
 
 [dependencies]
 dom_engine = { path = "../dom_engine" }

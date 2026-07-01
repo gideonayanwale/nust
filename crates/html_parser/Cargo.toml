@@ -1,5 +1,6 @@
 [package]
 name = "html_parser"
+edition = "2021"
 
 [dependencies]
 html_tokenizer = { path = "../html_tokenizer" }

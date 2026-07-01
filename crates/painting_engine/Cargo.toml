@@ -1,5 +1,6 @@
 [package]
 name = "painting_engine"
+edition = "2021"
 
 [dependencies]
 layout_engine = { path = "../layout_engine" }
