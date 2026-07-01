@@ -1,13 +1,6 @@
 [package]
 name = "painting_engine"
-edition.workspace = true
-version.workspace = true
-license.workspace = true
-authors.workspace = true
 
 [dependencies]
 layout_engine = { path = "../layout_engine" }
-<<<<<<< HEAD
 paint_engine = { path = "../paint_engine" }
-=======
->>>>>>> main

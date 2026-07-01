@@ -1,15 +1,8 @@
 [package]
 name = "rendering_engine"
-edition.workspace = true
-version.workspace = true
-license.workspace = true
-authors.workspace = true
 
 [dependencies]
 dom_engine = { path = "../dom_engine" }
-<<<<<<< HEAD
 html_tokenizer = { path = "../html_tokenizer" }
 html_parser = { path = "../html_parser" }
 render_tree = { path = "../render_tree" }
-=======
->>>>>>> main
