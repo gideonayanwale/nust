@@ -1,5 +1,6 @@
 [package]
 name = "distributed_browser_cluster"
+version.workspace = true
 edition = "2021"
 
 [dependencies]

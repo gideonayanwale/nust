@@ -33,10 +33,6 @@ dependencies = [
  "render_tree",
  "rendering_engine",
  "resource_loader",
- "layout_engine",
- "networking_stack",
- "painting_engine",
- "rendering_engine",
 ]
 
 [[package]]

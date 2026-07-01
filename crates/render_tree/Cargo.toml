@@ -1,5 +1,6 @@
 [package]
 name = "render_tree"
+version.workspace = true
 edition = "2021"
 
 [dependencies]

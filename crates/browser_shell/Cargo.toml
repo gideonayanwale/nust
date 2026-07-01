@@ -1,5 +1,6 @@
 [package]
 name = "browser_shell"
+version.workspace = true
 edition = "2021"
 
 [dependencies]

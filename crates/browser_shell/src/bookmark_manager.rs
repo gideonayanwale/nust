@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //! Bookmark manager with optional folder support.
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -54,9 +53,3 @@ mod tests {
         assert_eq!(manager.by_folder("Work").len(), 1);
     }
 }
-=======
-//! Bookmark Manager module scaffold.
-
-#[derive(Debug, Default)]
-pub struct BookmarkManagerService;
->>>>>>> main

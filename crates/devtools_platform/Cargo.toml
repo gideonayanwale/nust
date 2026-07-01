@@ -1,5 +1,6 @@
 [package]
 name = "devtools_platform"
+version.workspace = true
 edition = "2021"
 
 [dependencies]
