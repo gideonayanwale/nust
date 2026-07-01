@@ -1,5 +1,6 @@
 [package]
 name = "storage_system"
+version.workspace = true
 edition = "2021"
 
 [dependencies]

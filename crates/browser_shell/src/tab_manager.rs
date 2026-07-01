@@ -1,10 +1,7 @@
 //! Tab management for browser shell.
 
 use crate::new_tab_page::NewTabPage;
-<<<<<<< HEAD
 use crate::tab_process_registry::TabProcessInfo;
-=======
->>>>>>> main
 
 #[derive(Debug, Clone)]
 pub struct BrowserTab {
@@ -12,15 +9,9 @@ pub struct BrowserTab {
     pub title: String,
     pub url: String,
     pub ui_html: String,
-<<<<<<< HEAD
     pub pinned: bool,
     pub muted: bool,
-<<<<<<< HEAD
     pub process: Option<TabProcessInfo>,
-=======
->>>>>>> main
-=======
->>>>>>> main
 }
 
 #[derive(Debug, Default)]
@@ -37,22 +28,15 @@ impl TabManagerService {
             title: page.title.clone(),
             url: "nust://new-tab".to_string(),
             ui_html: page.render_html(),
-<<<<<<< HEAD
             pinned: false,
             muted: false,
-<<<<<<< HEAD
             process: None,
-=======
->>>>>>> main
-=======
->>>>>>> main
         };
         self.next_id += 1;
         self.tabs.push(tab.clone());
         tab
     }
 
-<<<<<<< HEAD
     pub fn pin_tab(&mut self, id: usize) {
         if let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) {
             tab.pinned = true;
@@ -65,11 +49,6 @@ impl TabManagerService {
         }
     }
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> main
->>>>>>> main
     pub fn tabs(&self) -> &[BrowserTab] {
         &self.tabs
     }
@@ -79,11 +58,6 @@ impl TabManagerService {
             tab.process = Some(process);
         }
     }
-=======
-    pub fn tabs(&self) -> &[BrowserTab] {
-        &self.tabs
-    }
->>>>>>> main
 }
 
 #[cfg(test)]
@@ -98,7 +72,6 @@ mod tests {
         assert!(tab.ui_html.contains("Search everywhere"));
         assert_eq!(manager.tabs().len(), 1);
     }
-<<<<<<< HEAD
 
     #[test]
     fn can_pin_and_mute_tab() {
@@ -110,7 +83,6 @@ mod tests {
         assert!(updated.pinned);
         assert!(updated.muted);
     }
-<<<<<<< HEAD
 
     #[test]
     fn can_attach_process_record_to_tab() {
@@ -121,13 +93,4 @@ mod tests {
         manager.attach_process(tab.id, process);
         assert!(manager.tabs()[0].process.is_some());
     }
-=======
->>>>>>> main
 }
-=======
-}
-//! Tab Manager module scaffold.
-
-#[derive(Debug, Default)]
-pub struct TabManagerService;
->>>>>>> main

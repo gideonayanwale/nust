@@ -1,5 +1,6 @@
 [package]
 name = "data_extraction_engine"
+version.workspace = true
 edition = "2021"
 
 [dependencies]
